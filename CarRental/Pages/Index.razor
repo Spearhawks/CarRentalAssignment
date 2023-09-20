@@ -1,0 +1,109 @@
+﻿@page "/"
+
+
+<div id="table">
+
+    @if (state == "vehicles")
+    {
+        <div>
+            <h4 class="text-center mb-3">Vehicles</h4>
+        </div>
+        <table class="table border border-info border-rounded pt-4">
+            <thead>
+                <tr>
+                    <th>RegNo</th>
+                    <th>Make</th>
+                    <th>Odometer</th>
+                    <th>Cost Km</th>
+                    <th>Vehicle Type</th>
+                    <th>$ Day</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ABC123</td>
+                    <td>ABC123</td>
+                    <td>ABC123</td>
+                    <td>ABC123</td>
+                    <td>ABC123</td>
+                    <td>ABC123</td>
+                    <td>Rented</td> <!-- https://getbootstrap.com/docs/4.0/components/badge/ -->
+                </tr>
+            </tbody>
+        </table>
+    }
+    else if (state == "bookings")
+    {
+        <div>
+            <h4 class="text-center mb-3">Bookings</h4>
+        </div>
+        <table class="table border border-info border-rounded pt-4">
+            <thead>
+                <tr>
+                    <th>RegNo</th>
+                    <th>Customer</th>
+                    <th>Km Rented</th>
+                    <th>Km Returned</th>
+                    <th>Rented</th>
+                    <th>Returned</th>
+                    <th>Cost</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody text="Bookings">
+                <tr>
+                    <td>ggg666</td>
+                    <td>ggg666</td>
+                    <td>ggg666</td>
+                    <td>ggg666</td>
+                    <td>ggg666</td>
+                    <td>ggg666</td>
+                    <td>ggg666</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else if (state == "customers")
+    {
+        <div>
+            <h4 class="text-center mb-3">Customers</h4>
+        </div>
+        <table class="table border border-info border-rounded pt-4">
+            <thead>
+                <tr>
+                    <th>CustomerID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+@*                 @foreach(var p in customers)
+                {
+                <td>@p.CustomerNo</td>
+                <td>@p.LastName</td>
+                <td>@p.FirstName</td>
+                } *@
+                </tr>
+            </tbody>
+        </table>
+    }
+
+    <div class="text-center mt-4">
+        <button type="button" id="vehiclesBtn" @onclick="ShowVehicles" class="btn btn-primary btn-block mb-4 btn-padding">Vehicles</button>
+        <button type="button" id="bookingsBtn" @onclick="ShowBookings" class="btn btn-primary btn-block mb-4 btn-padding">Bookings</button>
+        <button type="button" id="customersBtn" @onclick="ShowCustomers" class="btn btn-primary btn-block mb-4 btn-padding">Customers</button>
+    </div>
+</div>
+
+@code
+{
+    ///  <summary>
+    /// Uses "state" to show the list corresponding to the current "state".
+    /// </summary>
+    string state = "vehicles";
+    void ShowVehicles() => state = "vehicles";
+    void ShowBookings() => state = "bookings";
+    void ShowCustomers() => state = "customers";
+}
