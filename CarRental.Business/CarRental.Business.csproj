@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CarRental.Common\CarRental.Common.csproj" />
     <ProjectReference Include="..\CarRental.Data\CarRental.Data.csproj" />
   </ItemGroup>

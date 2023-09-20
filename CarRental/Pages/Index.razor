@@ -1,5 +1,6 @@
 ﻿@page "/"
-
+@using CarRental.Business.Classes;
+@inject BookingManager bookingManager
 
 <div id="table">
 
@@ -22,13 +23,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>ABC123</td>
-                    <td>ABC123</td>
-                    <td>ABC123</td>
-                    <td>ABC123</td>
-                    <td>ABC123</td>
-                    <td>ABC123</td>
-                    <td>Rented</td> <!-- https://getbootstrap.com/docs/4.0/components/badge/ -->
+                    @foreach(var v in bookingManager.GetVehicles())
+                    {
+                        <td>@v.RegistrationNo</td>
+                        <td>@v.Make</td>
+                        <td>@v.Odometer</td>
+                        <td>@v.CostPerKm</td>
+                        <td>@v.VehicleType</td>
+                        <td>@v.CostPerDay</td>
+                        <td>@v.RentedStatus</td>
+                    }
                 </tr>
             </tbody>
         </table>
@@ -53,13 +57,18 @@
             </thead>
             <tbody text="Bookings">
                 <tr>
-                    <td>ggg666</td>
-                    <td>ggg666</td>
-                    <td>ggg666</td>
-                    <td>ggg666</td>
-                    <td>ggg666</td>
-                    <td>ggg666</td>
-                    <td>ggg666</td>
+                    @foreach(var b in bookingManager.GetBookings())
+                    {
+                        <td>@b.RegistrationNo</td>
+                        <td>@b.Customer</td>
+                        <td>@b.KmRented</td>
+                        <td>@b.KmReturned</td>
+                        <td>@b.Rented</td>
+                        <td>@b.Returned</td>
+                        <td>@b.Cost</td>
+                        <td>@b.Status</td>
+                    }
+
                 </tr>
             </tbody>
         </table>
@@ -79,12 +88,12 @@
             </thead>
             <tbody>
                 <tr>
-@*                 @foreach(var p in customers)
+                @foreach(var p in bookingManager.GetCustomers())
                 {
-                <td>@p.CustomerNo</td>
-                <td>@p.LastName</td>
-                <td>@p.FirstName</td>
-                } *@
+                    <td>@p.CustID</td>
+                    <td>@p.LastName</td>
+                    <td>@p.FirstName</td>
+                }
                 </tr>
             </tbody>
         </table>
@@ -96,14 +105,3 @@
         <button type="button" id="customersBtn" @onclick="ShowCustomers" class="btn btn-primary btn-block mb-4 btn-padding">Customers</button>
     </div>
 </div>
-
-@code
-{
-    ///  <summary>
-    /// Uses "state" to show the list corresponding to the current "state".
-    /// </summary>
-    string state = "vehicles";
-    void ShowVehicles() => state = "vehicles";
-    void ShowBookings() => state = "bookings";
-    void ShowCustomers() => state = "customers";
-}
