@@ -31,7 +31,7 @@
                         <td>@v.CostPerKm</td>
                         <td>@v.VehicleType</td>
                         <td>@v.CostPerDay</td>
-                        <td>@v.RentedStatus</td>
+                        <td><span class="badge rounded-pill bg-@(v.RentedStatus.ToString() == "Available" ? "success" : "danger")">@v.RentedStatus</span></td>
                     </tr>
                     }
             </tbody>
@@ -66,7 +66,7 @@
                         <td>@b.Rented</td>
                         <td>@b.Returned</td>
                         <td>@b.Cost</td>
-                        <td>@b.Status</td>
+                        <td><span class="badge rounded-pill bg-@(b.Status.ToString() == "Open" ? "success" : "danger")">@b.Status</span></td>
                     </tr>
                     }
 

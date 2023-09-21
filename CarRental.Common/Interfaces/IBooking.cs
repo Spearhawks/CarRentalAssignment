@@ -10,12 +10,12 @@ namespace CarRental.Common.Interfaces;
 
 public interface IBooking
 {
-    string RegistrationNo { get; set; }
-    Customer Customer { get; set; }
-    int KmRented { get; set; }
-    int KmReturned { get; set; }
-    DateOnly Rented { get; set; }
-    DateOnly Returned { get; set; }
-    double Cost { get; set; }
-    BookingStatus Status { get; set; }
+    public string RegistrationNo { get; set; }
+    public Customer Customer { get; set; }
+    public int KmRented { get; set; }
+    public int KmReturned { get; set; }
+    public DateOnly Rented { get; set; }
+    public DateOnly Returned { get; set; }
+    public double Cost { get; set; }
+    public BookingStatus Status { get; set; }
 }
