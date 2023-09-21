@@ -22,9 +22,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
                     @foreach(var v in bookingManager.GetVehicles())
                     {
+                    <tr>
                         <td>@v.RegistrationNo</td>
                         <td>@v.Make</td>
                         <td>@v.Odometer</td>
@@ -32,8 +32,8 @@
                         <td>@v.VehicleType</td>
                         <td>@v.CostPerDay</td>
                         <td>@v.RentedStatus</td>
+                    </tr>
                     }
-                </tr>
             </tbody>
         </table>
     }
@@ -56,9 +56,9 @@
                 </tr>
             </thead>
             <tbody text="Bookings">
-                <tr>
                     @foreach(var b in bookingManager.GetBookings())
                     {
+                    <tr>
                         <td>@b.RegistrationNo</td>
                         <td>@b.Customer</td>
                         <td>@b.KmRented</td>
@@ -67,9 +67,9 @@
                         <td>@b.Returned</td>
                         <td>@b.Cost</td>
                         <td>@b.Status</td>
+                    </tr>
                     }
 
-                </tr>
             </tbody>
         </table>
     }
@@ -87,14 +87,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
                 @foreach(var p in bookingManager.GetCustomers())
                 {
+                <tr>
                     <td>@p.CustID</td>
                     <td>@p.LastName</td>
                     <td>@p.FirstName</td>
-                }
                 </tr>
+                }
             </tbody>
         </table>
     }
