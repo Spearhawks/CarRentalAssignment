@@ -18,4 +18,20 @@ public class Booking : IBooking
     public DateOnly Returned { get; set; }
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
+
+    // Anropa denna vid filinläsning?
+    public void ReturnVehicle(IVehicle vehicle)
+    {
+        Cost = DaysRented() * vehicle.CostPerDay + TotalKm() * vehicle.CostPerKm;
+    }
+
+    private int DaysRented()
+    {
+        return Returned.DayNumber - Rented.DayNumber;
+    }
+
+    private int TotalKm()
+    {
+        return KmReturned - KmRented;
+    }
 }
