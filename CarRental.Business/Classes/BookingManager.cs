@@ -12,8 +12,20 @@ namespace CarRental.Business.Classes;
 
 public class BookingManager
 {
+    // Data variables.
     private readonly IData _data;
 
+    #region Index.razor related code.
+    /// <summary>
+    /// Variables and methods for changing what table that is shown.
+    /// </summary>
+    public string state = "vehicles";
+    public void ShowVehicles() => state = "vehicles";
+    public void ShowBookings() => state = "bookings";
+    public void ShowCustomers() => state = "customers";
+    #endregion
+
+    // Constructor
     public BookingManager(IData data) => _data = data;
 
     public IEnumerable<IBooking> GetBookings()

@@ -4,104 +4,112 @@
 
 <div id="table">
 
-    @if (state == "vehicles")
+    @switch(bookingManager.state)
     {
-        <div>
-            <h4 class="text-center mb-3">Vehicles</h4>
-        </div>
-        <table class="table border border-info border-rounded pt-4">
-            <thead>
-                <tr>
-                    <th>RegNo</th>
-                    <th>Make</th>
-                    <th>Odometer</th>
-                    <th>Cost Km</th>
-                    <th>Vehicle Type</th>
-                    <th>$ Day</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                    @foreach(var v in bookingManager.GetVehicles())
-                    {
-                    <tr>
-                        <td>@v.RegistrationNo</td>
-                        <td>@v.Make</td>
-                        <td>@v.Odometer</td>
-                        <td>@v.CostPerKm</td>
-                        <td>@v.VehicleType</td>
-                        <td>@v.CostPerDay</td>
-                        <td><span class="badge rounded-pill bg-@(v.RentedStatus.ToString() == "Available" ? "success" : "danger")">@v.RentedStatus</span></td>
-                    </tr>
-                    }
-            </tbody>
-        </table>
-    }
-    else if (state == "bookings")
-    {
-        <div>
-            <h4 class="text-center mb-3">Bookings</h4>
-        </div>
-        <table class="table border border-info border-rounded pt-4">
-            <thead>
-                <tr>
-                    <th>RegNo</th>
-                    <th>Customer</th>
-                    <th>Km Rented</th>
-                    <th>Km Returned</th>
-                    <th>Rented</th>
-                    <th>Returned</th>
-                    <th>Cost</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody text="Bookings">
-                    @foreach(var b in bookingManager.GetBookings())
-                    {
-                    <tr>
-                        <td>@b.RegistrationNo</td>
-                        <td>@b.Customer</td>
-                        <td>@b.KmRented</td>
-                        <td>@b.KmReturned</td>
-                        <td>@b.Rented</td>
-                        <td>@b.Returned</td>
-                        <td>@b.Cost</td>
-                        <td><span class="badge rounded-pill bg-@(b.Status.ToString() == "Open" ? "success" : "danger")">@b.Status</span></td>
-                    </tr>
-                    }
+        case ("vehicles"):
+            <div>
+                <h4 class="text-center mb-3">Vehicles</h4>
+            </div>
+            <div class="row justify-content-center">
+                <table class="table table-striped table-hover table-bordered border-info border-rounded pt-4 w-75">
+                    <thead>
+                        <tr>
+                            <th>RegNo</th>
+                            <th>Make</th>
+                            <th>Odometer</th>
+                            <th>Cost Km</th>
+                            <th>Vehicle Type</th>
+                            <th>$ Day</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var v in bookingManager.GetVehicles())
+                        {
+                            <tr>
+                                <td>@v.RegistrationNo</td>
+                                <td>@v.Make</td>
+                                <td>@v.Odometer</td>
+                                <td>@v.CostPerKm</td>
+                                <td>@v.VehicleType</td>
+                                <td>@v.CostPerDay</td>
+                                <td><span class="badge rounded-pill bg-@(v.RentedStatus.ToString() == "Available" ? "success" : "danger")">@v.RentedStatus</span></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            break;
+        case ("bookings"):
+            <div>
+                <h4 class="text-center mb-3">Bookings</h4>
+            </div>
+            <div class="row justify-content-center">
+                <table class="table table-striped table-hover table-bordered border-info border-rounded pt-4 w-75">
+                    <thead>
+                        <tr>
+                            <th>RegNo</th>
+                            <th>Customer</th>
+                            <th>Km Rented</th>
+                            <th>Km Returned</th>
+                            <th>Rented</th>
+                            <th>Returned</th>
+                            <th>Cost</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody text="Bookings">
+                        @foreach (var b in bookingManager.GetBookings())
+                        {
+                            <tr>
+                                <td>@b.RegistrationNo</td>
+                                <td>@b.Customer</td>
+                                <td>@b.KmRented</td>
+                                <td>@b.KmReturned</td>
+                                <td>@b.Rented</td>
+                                <td>@b.Returned</td>
+                                <td>@b.Cost</td>
+                                <td><span class="badge rounded-pill bg-@(b.Status.ToString() == "Open" ? "success" : "danger")">@b.Status</span></td>
+                            </tr>
+                        }
 
-            </tbody>
-        </table>
-    }
-    else if (state == "customers")
-    {
-        <div>
-            <h4 class="text-center mb-3">Customers</h4>
-        </div>
-        <table class="table border border-info border-rounded pt-4">
-            <thead>
-                <tr>
-                    <th>CustomerID</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach(var p in bookingManager.GetCustomers())
-                {
-                <tr>
-                    <td>@p.CustID</td>
-                    <td>@p.LastName</td>
-                    <td>@p.FirstName</td>
-                </tr>
-                }
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+            break;
+        case ("customers"):
+            <div>
+                <h4 class="text-center mb-3">Customers</h4>
+            </div>
+            <div class="row justify-content-center">
+                <table class="table table-striped table-hover table-bordered border-info border-rounded pt-4 w-50">
+                    <thead>
+                        <tr>
+                            <th>CustomerID</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var p in bookingManager.GetCustomers())
+                        {
+                            <tr>
+                                <td>@p.CustID</td>
+                                <td>@p.LastName</td>
+                                <td>@p.FirstName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            break;
+        default:
+            break;
     }
 
     <div class="text-center mt-4">
-        <button type="button" id="vehiclesBtn" @onclick="ShowVehicles" class="btn btn-primary btn-block mb-4 btn-padding">Vehicles</button>
-        <button type="button" id="bookingsBtn" @onclick="ShowBookings" class="btn btn-primary btn-block mb-4 btn-padding">Bookings</button>
-        <button type="button" id="customersBtn" @onclick="ShowCustomers" class="btn btn-primary btn-block mb-4 btn-padding">Customers</button>
+        <button type="button" id="vehiclesBtn" @onclick="bookingManager.ShowVehicles" class="btn btn-primary btn-block mb-4 btn-padding">Vehicles</button>
+        <button type="button" id="bookingsBtn" @onclick="bookingManager.ShowBookings" class="btn btn-primary btn-block mb-4 btn-padding">Bookings</button>
+        <button type="button" id="customersBtn" @onclick="bookingManager.ShowCustomers" class="btn btn-primary btn-block mb-4 btn-padding">Customers</button>
     </div>
 </div>
