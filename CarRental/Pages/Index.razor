@@ -69,10 +69,9 @@
                                 <td>@b.Rented</td>
                                 <td>@b.Returned</td>
                                 <td>@b.Cost</td>
-                                <td><span class="badge rounded-pill bg-@(b.Status.ToString() == "Open" ? "success" : "danger")">@b.Status</span></td>
+                                <td><span class="badge rounded-pill bg-@(b.Status.ToString() == "Open" ? "success" : "black")">@b.Status</span></td>
                             </tr>
                         }
-
                     </tbody>
                 </table>
             </div>

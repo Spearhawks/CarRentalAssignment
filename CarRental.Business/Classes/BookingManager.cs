@@ -23,6 +23,7 @@ public class BookingManager
     public void ShowVehicles() => state = "vehicles";
     public void ShowBookings() => state = "bookings";
     public void ShowCustomers() => state = "customers";
+
     #endregion
 
     // Constructor
