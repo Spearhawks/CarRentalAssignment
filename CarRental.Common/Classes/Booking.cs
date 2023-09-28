@@ -19,7 +19,6 @@ public class Booking : IBooking
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
 
-    // Anropa denna vid filinläsning?
     public void ReturnVehicle(IVehicle vehicle)
     {
         Cost = DaysRented() * vehicle.CostPerDay + TotalKm() * vehicle.CostPerKm;
@@ -32,7 +31,9 @@ public class Booking : IBooking
 
     private int TotalKm()
     {
-        return KmReturned - KmRented;
+        if (KmReturned != null)
+            return KmReturned - KmRented;
+        else return 0;
     }
 
     public string CustomerData(Customer c)

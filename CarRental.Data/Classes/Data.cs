@@ -27,10 +27,10 @@ public class Data : IData
         _persons.Add(new Customer { Ssn = 4, FirstName = "Bobba", LastName = "Fett" });
         _vehicles.Add(new Car { RegistrationNo = "ABC123", Make = "Volvo", Odometer = 3233, CostPerKm = 120, CostPerDay = 300, VehicleType = VehicleType.Van, RentedStatus = RentedStatus.Available });
         _vehicles.Add(new Car { RegistrationNo = "GGF332", Make = "Opel", Odometer = 3993, CostPerKm = 100, CostPerDay = 200, VehicleType = VehicleType.Sedan, RentedStatus = RentedStatus.Rented });
-        _vehicles.Add(new Car { RegistrationNo = "ABC123", Make = "Volvo", Odometer = 3233, CostPerKm = 120, CostPerDay = 300, VehicleType = VehicleType.Van, RentedStatus = RentedStatus.Available });
-        _bookings.Add(new Booking { RegistrationNo = "ABC123", Customer = cust1, KmRented = 3233, KmReturned = 3333, Rented = rentedDate, Returned = todayDate, Cost = 0, Status = BookingStatus.Open });
+        _vehicles.Add(new Car { RegistrationNo = "CBA123", Make = "Volvo", Odometer = 3233, CostPerKm = 120, CostPerDay = 300, VehicleType = VehicleType.Van, RentedStatus = RentedStatus.Available });
+        _bookings.Add(new Booking { RegistrationNo = "ABC123", Customer = cust1, KmRented = 3233, KmReturned = 0, Rented = rentedDate, Returned = todayDate, Cost = 0, Status = BookingStatus.Open });
         _bookings.Add(new Booking { RegistrationNo = "GGF332", Customer = cust3, KmRented = 3993, KmReturned = 5677, Rented = rentedDate, Returned = todayDate, Cost = 0, Status = BookingStatus.Closed });
-        _bookings.Add(new Booking { RegistrationNo = "ABC123", Customer = cust2, KmRented = 3233, KmReturned = 3333, Rented = rentedDate, Returned = todayDate, Cost = 0, Status = BookingStatus.Open });
+        _bookings.Add(new Booking { RegistrationNo = "CBA123", Customer = cust2, KmRented = 5678, KmReturned = 0, Rented = rentedDate, Returned = todayDate, Cost = 0, Status = BookingStatus.Open });
     }
 
     public IEnumerable<IBooking> GetBookings() => _bookings;
