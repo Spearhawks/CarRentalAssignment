@@ -11,7 +11,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddScoped<BookingManager>();
-builder.Services.AddScoped<IData, Data>();
+builder.Services.AddSingleton<BookingManager>();
+builder.Services.AddSingleton<IData, Data>();
 
 await builder.Build().RunAsync();

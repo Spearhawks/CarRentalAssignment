@@ -63,11 +63,11 @@
                         {
                             <tr>
                                 <td>@b.RegistrationNo</td>
-                                <td>@b.Customer</td>
+                                <td>@(() => bookingManager.GetBooking(b.Customer.Ssn))</td>
                                 <td>@b.KmRented</td>
-                                <td>@b.KmReturned</td>
+                                <td>@(b.Status.ToString() == "Closed" ? b.KmReturned : "")</td>
                                 <td>@b.Rented</td>
-                                <td>@b.Returned</td>
+                                <td>@(b.Status.ToString() == "Closed" ? b.Returned : "")</td>
                                 <td>@b.Cost</td>
                                 <td><span class="badge rounded-pill bg-@(b.Status.ToString() == "Open" ? "success" : "black")">@b.Status</span></td>
                             </tr>
@@ -93,7 +93,7 @@
                         @foreach (var p in bookingManager.GetCustomers())
                         {
                             <tr>
-                                <td>@p.CustID</td>
+                                <td>@p.Ssn</td>
                                 <td>@p.LastName</td>
                                 <td>@p.FirstName</td>
                             </tr>

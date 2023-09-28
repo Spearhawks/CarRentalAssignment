@@ -34,4 +34,9 @@ public class Booking : IBooking
     {
         return KmReturned - KmRented;
     }
+
+    public string CustomerData(Customer c)
+    {
+        return $"{c.LastName} {c.FirstName} ({c.Ssn})";
+    }
 }

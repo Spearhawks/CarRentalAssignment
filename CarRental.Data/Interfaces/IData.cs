@@ -1,4 +1,5 @@
-﻿using CarRental.Common.Enums;
+﻿using CarRental.Common.Classes;
+using CarRental.Common.Enums;
 using CarRental.Common.Interfaces;
 using System;
 using System.Collections.Generic;

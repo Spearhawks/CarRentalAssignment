@@ -29,6 +29,21 @@ public class BookingManager
     // Constructor
     public BookingManager(IData data) => _data = data;
 
+    // Ha metoder för att hämta enskilda kunder och fordon?
+    // Hantera så att customer visas på ett korrekt sätt.
+    public IVehicle? GetVehicle(string regNo)
+    {
+        return (IVehicle?)_data.GetVehicles().Where(r => r.RegistrationNo == regNo);
+    }
+    public IBooking? GetBooking(int custid)
+    {
+        return (IBooking)_data.GetBookings().Where(c => c.Customer.Ssn == custid);
+    }
+    public IPerson GetPerson(int custid)
+    {
+        return (IPerson)_data.GetPersons().Where(p => p.Ssn == custid);
+    }
+
     public IEnumerable<IBooking> GetBookings()
     {
         return _data.GetBookings();
