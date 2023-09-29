@@ -19,6 +19,8 @@ public class Booking : IBooking
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
 
+
+    // Flytta dessa till BM?? Använda som CustomerData?
     public void ReturnVehicle(IVehicle vehicle)
     {
         Cost = DaysRented() * vehicle.CostPerDay + TotalKm() * vehicle.CostPerKm;

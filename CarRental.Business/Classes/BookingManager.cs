@@ -31,7 +31,7 @@ public class BookingManager
 
     public IVehicle? GetVehicle(string regNo)
     {
-        return (IVehicle?)_data.GetVehicles().Where(r => r.RegistrationNo == regNo);
+        return _data.GetVehicles().FirstOrDefault(r => r.RegistrationNo == regNo);
     }
     public Booking GetBooking(int custid)
     {
