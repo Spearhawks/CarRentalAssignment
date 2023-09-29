@@ -31,13 +31,10 @@ public class Booking : IBooking
 
     private int TotalKm()
     {
-        if (KmReturned != null)
+        if (KmReturned != 0)
             return KmReturned - KmRented;
         else return 0;
     }
 
-    public string CustomerData(Customer c)
-    {
-        return $"{c.LastName} {c.FirstName} ({c.Ssn})";
-    }
+
 }

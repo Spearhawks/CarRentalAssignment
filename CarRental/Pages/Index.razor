@@ -63,7 +63,8 @@
                         {
                             <tr>
                                 <td>@b.RegistrationNo</td>
-                                <td>@b.Customer</td>
+                                @* <td>@b.Customer</td> *@
+                                <td>@(() => bookingManager.CustomerData(b.Customer))</td>
                                 <td>@b.KmRented</td>
                                 <td>@(b.Status.ToString() == "Closed" ? b.KmReturned : "")</td>
                                 <td>@b.Rented</td>
@@ -81,7 +82,7 @@
                 <h4 class="text-center mb-3">Customers</h4>
             </div>
             <div class="row justify-content-center">
-                <table class="table table-striped table-hover table-bordered border-info border-rounded pt-4 w-50">
+                <table class="table table-striped table-hover table-bordered border-info border-rounded pt-4 w-75">
                     <thead>
                         <tr>
                             <th>CustomerID</th>
@@ -93,7 +94,7 @@
                         @foreach (var p in bookingManager.GetCustomers())
                         {
                             <tr>
-                                <td>@p.Ssn</td>
+                                <td>@p.SSN</td>
                                 <td>@p.LastName</td>
                                 <td>@p.FirstName</td>
                             </tr>

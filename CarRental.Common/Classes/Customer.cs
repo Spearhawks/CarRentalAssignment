@@ -11,11 +11,12 @@ public class Customer : IPerson
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public int Ssn { get; set; }
+    public int SSN { get; set; }
 
     public Customer()
     { }
 
     public Customer(int ssn, string fn, string ln) => 
-        (Ssn, FirstName, LastName) = ( ssn, fn, ln);
+        (SSN, FirstName, LastName) = ( ssn, fn, ln);
+        
 }

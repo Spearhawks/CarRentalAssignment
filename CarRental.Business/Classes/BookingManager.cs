@@ -35,11 +35,17 @@ public class BookingManager
     }
     public Booking GetBooking(int custid)
     {
-        return (Booking)_data.GetBookings().Where(c => c.Customer.Ssn == custid);
+        return (Booking)_data.GetBookings().Where(c => c.Customer.SSN == custid);
     }
+
+    public string CustomerData(Customer c)
+    {
+        return $"{c.LastName} {c.FirstName} ({c.SSN})";
+    }
+
     public IPerson GetPerson(int custid)
     {
-        return (IPerson)_data.GetPersons().Where(p => p.Ssn == custid);
+        return (IPerson)_data.GetPersons().Where(p => p.SSN == custid);
     }
 
     public IEnumerable<IBooking> GetBookings()
