@@ -1,10 +1,5 @@
 ﻿using CarRental.Common.Enums;
 using CarRental.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarRental.Common.Classes;
 
@@ -19,24 +14,10 @@ public class Booking : IBooking
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
 
-
-    // Flytta dessa till BM?? Använda som CustomerData?
     public void ReturnVehicle(IVehicle vehicle)
     {
         Cost = DaysRented() * vehicle.CostPerDay + TotalKm() * vehicle.CostPerKm;
     }
-
-    private int DaysRented()
-    {
-        return Returned.DayNumber - Rented.DayNumber;
-    }
-
-    private int TotalKm()
-    {
-        if (KmReturned != 0)
-            return KmReturned - KmRented;
-        else return 0;
-    }
-
-
+    private int DaysRented() => Returned.DayNumber - Rented.DayNumber;
+    private int TotalKm() => KmReturned != 0 ? KmReturned - KmRented : 0;
 }
