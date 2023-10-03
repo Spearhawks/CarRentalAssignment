@@ -16,6 +16,6 @@ public class Booking : IBooking
 
     public void ReturnVehicle(IVehicle vehicle)
     {
-        Cost = (Returned.DayNumber - Rented.DayNumber) * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
+       Cost = (Returned.DayNumber - Rented.DayNumber) * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
     }
 }

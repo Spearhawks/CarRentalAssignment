@@ -18,4 +18,6 @@ public interface IBooking
     public DateOnly Returned { get; set; }
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
+
+    public void ReturnVehicle(IVehicle vehicle);
 }
