@@ -19,7 +19,8 @@ public class BookingManager
     public void ShowCustomers() => state = "customers";
     #endregion
 
-    //public BookingManager(IData data) => _data = data;
+    public BookingManager(IData data) => _data = data;
+
     //public IPerson GetPerson(int custid)
     //{
     //    return _data.GetPersons().Single(p => p.SSN == custid);
@@ -32,10 +33,11 @@ public class BookingManager
     {
         return (Booking)_data.GetBookings().Where(c => c.Customer.SSN == custid);
     }
-    public string CustomerOutputString(Customer c)
-    {
-        return $"{c.LastName} {c.FirstName} ({c.SSN})";
-    }
+    
+    //public string CustomerOutputString(Customer c)
+    //{
+    //    return $"{c.LastName} {c.FirstName} ({c.SSN})";
+    //}
     public IEnumerable<IBooking> GetBookings()
     {
         return _data.GetBookings();

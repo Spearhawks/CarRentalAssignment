@@ -14,4 +14,6 @@ public interface IBooking
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
     public void ReturnVehicle(IVehicle vehicle);
+
+    public string CustomerOut(Customer c);
 }

@@ -63,7 +63,8 @@
                         {
                             <tr>
                                 <td>@b.RegistrationNo</td>
-                                <td>@bookingManager.CustomerOutputString(b.Customer)</td>
+                                @* <td>@bookingManager.CustomerOutputString(b.Customer)</td> *@
+                                <td>@b.CustomerOut(b.Customer)</td>
                                 <td>@b.KmRented</td>
                                 <td>@(b.Status.ToString() == "Closed" ? b.KmReturned : "")</td>
                                 <td>@b.Rented</td>

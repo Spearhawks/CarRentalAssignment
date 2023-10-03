@@ -19,4 +19,9 @@ public class Booking : IBooking
        Cost = (Returned.DayNumber - Rented.DayNumber) * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
     }
 
+    public string CustomerOut(Customer c)
+    {
+        return $"{c.LastName} {c.FirstName} ({c.SSN})";
+    }
+
 }
