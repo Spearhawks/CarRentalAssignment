@@ -16,7 +16,6 @@ public interface IBooking
     public int KmReturned { get; set; }
     public DateOnly Rented { get; set; }
     public DateOnly Returned { get; set; }
-
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
 }

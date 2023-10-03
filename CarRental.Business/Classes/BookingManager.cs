@@ -17,13 +17,12 @@ public class BookingManager
     public void ShowVehicles() => state = "vehicles";
     public void ShowBookings() => state = "bookings";
     public void ShowCustomers() => state = "customers";
-
     #endregion
 
     public BookingManager(IData data) => _data = data;
     public IVehicle? GetVehicle(string regNo)
     {
-        return _data.GetVehicles().FirstOrDefault(r => r.RegistrationNo == regNo);
+        return _data.GetVehicles().Single(r => r.RegistrationNo == regNo);
     }
     public Booking GetBooking(int custid)
     {
@@ -35,7 +34,7 @@ public class BookingManager
     }
     public IPerson GetPerson(int custid)
     {
-        return (IPerson)_data.GetPersons().Where(p => p.SSN == custid);
+        return _data.GetPersons().Single(p => p.SSN == custid);
     }
     public IEnumerable<IBooking> GetBookings()
     {

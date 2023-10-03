@@ -9,14 +9,10 @@ namespace CarRental.Common.Classes;
 
 public class Customer : IPerson
 {
+    public int SSN { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public int SSN { get; set; }
-
-    public Customer()
-    { }
-
-    public Customer(int ssn, string fn, string ln) => 
-        (SSN, FirstName, LastName) = ( ssn, fn, ln);
+    public Customer(){ }
+    public Customer(int ssn, string fn, string ln) => (SSN, FirstName, LastName) = ( ssn, fn, ln);
         
 }
