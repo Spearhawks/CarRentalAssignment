@@ -18,4 +18,5 @@ public class Booking : IBooking
     {
        Cost = (Returned.DayNumber - Rented.DayNumber) * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
     }
+
 }

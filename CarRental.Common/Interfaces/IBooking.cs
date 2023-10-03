@@ -1,10 +1,5 @@
 ﻿using CarRental.Common.Classes;
 using CarRental.Common.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarRental.Common.Interfaces;
 
@@ -18,6 +13,5 @@ public interface IBooking
     public DateOnly Returned { get; set; }
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
-
     public void ReturnVehicle(IVehicle vehicle);
 }
