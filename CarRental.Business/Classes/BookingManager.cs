@@ -20,15 +20,9 @@ public class BookingManager
     #endregion
 
     public BookingManager(IData data) => _data = data;
-
-    
     public IVehicle? GetVehicle(string regNo)
     {
         return _data.GetVehicles().Single(r => r.RegistrationNo == regNo);
-    }
-    public Booking GetBooking(int custid)
-    {
-        return (Booking)_data.GetBookings().Where(c => c.Customer.SSN == custid);
     }
     public IEnumerable<IBooking> GetBookings()
     {
@@ -43,8 +37,16 @@ public class BookingManager
         return _data.GetVehicles();
     }
 
+    #region Unused code
+
     //public IPerson GetPerson(int custid)
     //{
     //    return _data.GetPersons().Single(p => p.SSN == custid);
     //}
+    //public Booking GetBooking(int custid)
+    //{
+    //    return (Booking)_data.GetBookings().Where(c => c.Customer.SSN == custid);
+    //}
+
+    #endregion
 }

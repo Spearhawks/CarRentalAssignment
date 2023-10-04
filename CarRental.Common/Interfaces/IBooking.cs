@@ -5,7 +5,7 @@ namespace CarRental.Common.Interfaces;
 
 public interface IBooking
 {
-    public string RegistrationNo { get; init; }
+    public string RegistrationNo { get; set; }
     public Customer Customer { get; set; }
     public int KmRented { get; set; }
     public int KmReturned { get; set; }
@@ -14,6 +14,5 @@ public interface IBooking
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
     public void ReturnVehicle(IVehicle vehicle);
-
     public string CustomerOut(Customer c);
 }

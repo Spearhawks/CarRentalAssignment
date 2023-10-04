@@ -5,7 +5,7 @@ namespace CarRental.Common.Classes;
 
 public class Booking : IBooking
 {
-    public string RegistrationNo { get; init; }
+    public string RegistrationNo { get; set; }
     public Customer Customer { get; set; }
     public int KmRented { get; set; }
     public int KmReturned { get; set; }
@@ -13,6 +13,12 @@ public class Booking : IBooking
     public DateOnly Returned { get; set; }
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
+
+    public Booking()
+    {
+       
+    }
+
     public void ReturnVehicle(IVehicle vehicle)
     {
         Cost = CalculateDays() * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
