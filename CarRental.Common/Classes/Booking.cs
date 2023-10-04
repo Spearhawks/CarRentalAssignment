@@ -13,12 +13,10 @@ public class Booking : IBooking
     public DateOnly Returned { get; set; }
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }
-
     public void ReturnVehicle(IVehicle vehicle)
     {
-       Cost = CalculateDays() * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
+        Cost = CalculateDays() * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
     }
-
     private int CalculateDays()
     {
         if(KmReturned != 0)
@@ -27,10 +25,8 @@ public class Booking : IBooking
         }
         else { return 0; }
     }
-
     public string CustomerOut(Customer c)
     {
         return $"{c.LastName} {c.FirstName} ({c.SSN})";
     }
-
 }

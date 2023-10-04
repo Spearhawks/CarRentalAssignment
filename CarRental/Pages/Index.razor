@@ -68,9 +68,7 @@
                                 <td>@(b.Status.ToString() == "Closed" ? b.KmReturned : "")</td>
                                 <td>@b.Rented</td>
                                 <td>@(b.Status.ToString() == "Closed" ? b.Returned : "")</td>
-                                @* <td>@{b.ReturnVehicle(bookingManager.GetVehicle(b.RegistrationNo));}@b.Cost</td> *@
-                                @* <td>@(() => b.ReturnVehicle(bookingManager.GetVehicle(b.RegistrationNo)));@b.Cost</td> *@
-                                <td>@b.Cost</td>
+                                <td>@{b.ReturnVehicle(bookingManager.GetVehicle(b.RegistrationNo));}@b.Cost</td>
                                 <td><span class="badge rounded-pill bg-@(b.Status.ToString() == "Open" ? "success" : "black")">@b.Status</span></td>
                             </tr>
                         }
