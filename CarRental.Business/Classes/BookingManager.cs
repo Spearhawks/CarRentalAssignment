@@ -21,23 +21,15 @@ public class BookingManager
 
     public BookingManager(IData data) => _data = data;
 
-    //public IPerson GetPerson(int custid)
-    //{
-    //    return _data.GetPersons().Single(p => p.SSN == custid);
-    //}
-    //public IVehicle? GetVehicle(string regNo)
-    //{
-    //    return _data.GetVehicles().Single(r => r.RegistrationNo == regNo);
-    //}
+    
+    public IVehicle? GetVehicle(string regNo)
+    {
+        return _data.GetVehicles().Single(r => r.RegistrationNo == regNo);
+    }
     public Booking GetBooking(int custid)
     {
         return (Booking)_data.GetBookings().Where(c => c.Customer.SSN == custid);
     }
-    
-    //public string CustomerOutputString(Customer c)
-    //{
-    //    return $"{c.LastName} {c.FirstName} ({c.SSN})";
-    //}
     public IEnumerable<IBooking> GetBookings()
     {
         return _data.GetBookings();
@@ -50,4 +42,9 @@ public class BookingManager
     {
         return _data.GetVehicles();
     }
+
+    //public IPerson GetPerson(int custid)
+    //{
+    //    return _data.GetPersons().Single(p => p.SSN == custid);
+    //}
 }

@@ -16,7 +16,16 @@ public class Booking : IBooking
 
     public void ReturnVehicle(IVehicle vehicle)
     {
-       Cost = (Returned.DayNumber - Rented.DayNumber) * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
+       Cost = CalculateDays() * vehicle.CostPerDay + (KmReturned != 0 ? KmReturned - KmRented : 0) * vehicle.CostPerKm;
+    }
+
+    private int CalculateDays()
+    {
+        if(KmReturned != 0)
+        {
+            return Returned.DayNumber - Rented.DayNumber;
+        }
+        else { return 0; }
     }
 
     public string CustomerOut(Customer c)
