@@ -6,10 +6,10 @@ namespace CarRental.Common.Classes;
 public class Booking : IBooking
 {
     public string RegistrationNo { get; init; }
-    public Customer Customer { get; set; }
-    public int KmRented { get; set; }
+    public Customer Customer { get; init; }
+    public int KmRented { get; init; }
     public int KmReturned { get; set; }
-    public DateOnly Rented { get; set; }
+    public DateOnly Rented { get; init; }
     public DateOnly Returned { get; set; }
     public double Cost { get; set; }
     public BookingStatus Status { get; set; }

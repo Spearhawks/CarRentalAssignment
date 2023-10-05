@@ -24,7 +24,6 @@ public class BookingManager
         _data = data;
         UpdateBooking();
     }
-
     public IVehicle? GetVehicle(string regNo)
     {
         return _data.GetVehicles().Single(r => r.RegistrationNo == regNo);
@@ -44,7 +43,6 @@ public class BookingManager
             }
         }
     }
-
     public IEnumerable<Customer> GetCustomers() 
     {
         return _data.GetPersons().OfType<Customer>();

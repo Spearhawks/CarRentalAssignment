@@ -26,10 +26,10 @@ public class Data : IData
         var todayDate = DateOnly.FromDateTime(DateTime.Today);
         var rentedDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-3));
 
-        _bookings.Add(new Booking { RegistrationNo = "ABC123", Customer = (Customer)_persons[1], KmRented = 3233, KmReturned = 0, Rented = rentedDate, Cost = default, Status = BookingStatus.Open });
+        _bookings.Add(new Booking { RegistrationNo = "ABC123", Customer = (Customer)_persons[0], KmRented = 3233, KmReturned = 0, Rented = rentedDate, Cost = default, Status = BookingStatus.Open });
         _bookings.Add(new Booking { RegistrationNo = "GGF332", Customer = (Customer)_persons[1], KmRented = 3993, KmReturned = 4001, Rented = rentedDate, Returned = todayDate, Cost = default, Status = BookingStatus.Closed });
-        _bookings.Add(new Booking { RegistrationNo = "CBA123", Customer = (Customer)_persons[1], KmRented = 5678, KmReturned = 0, Rented = rentedDate, Cost = default, Status = BookingStatus.Open });
-        _bookings.Add(new Booking { RegistrationNo = "ZZZ666", Customer = (Customer)_persons[1], KmRented = 666, KmReturned = 777, Rented = rentedDate, Returned = todayDate, Cost = default, Status = BookingStatus.Closed });
+        _bookings.Add(new Booking { RegistrationNo = "CBA123", Customer = (Customer)_persons[2], KmRented = 5678, KmReturned = 0, Rented = rentedDate, Cost = default, Status = BookingStatus.Open });
+        _bookings.Add(new Booking { RegistrationNo = "ZZZ666", Customer = (Customer)_persons[3], KmRented = 666, KmReturned = 777, Rented = rentedDate, Returned = todayDate, Cost = default, Status = BookingStatus.Closed });
     }
     public void UpdateBooking(IBooking _b, double cost)
     {
